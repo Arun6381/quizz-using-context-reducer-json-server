@@ -23,6 +23,11 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
   min-height: 100vh;
   color: var(--color-light);
   background-color: var(--color-darkest);
@@ -30,18 +35,36 @@ body {
 }
 
 .app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  z-index: 10; /* Ensure content is above particles */
+}
+
+.particles-background {
+  position: absolute; /* Fixed positioning for background effect */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind all content */
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 .main {
-  width: 50rem;
+  width: 100%;
+  max-width: 50rem;
+  padding: 1.6rem;
 }
 
 .app-header {
-  width: 66rem;
+  width: 100%;
+  max-width: 66rem;
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
@@ -59,28 +82,33 @@ body {
 
 img {
   width: 14rem;
+  max-width: 100%;
 }
 
 h1 {
   font-family: "Codystar";
   font-size: 5.6rem;
+  text-align: center;
 }
 
 h2 {
   font-size: 3.6rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 h3 {
   font-size: 2.4rem;
   font-weight: 600;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 h4 {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 2.4rem;
+  text-align: center;
 }
 
 .start {
@@ -110,6 +138,7 @@ progress {
   background-color: var(--color-medium);
   border-radius: 100px;
 }
+
 ::-webkit-progress-value {
   background-color: var(--color-theme);
   border-radius: 100px;
@@ -126,6 +155,9 @@ progress {
   cursor: pointer;
   border-radius: 100px;
   transition: 0.3s;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
 
 .btn:not([disabled]):hover {
@@ -149,6 +181,7 @@ progress {
   flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 3.2rem;
+  width: 100%;
 }
 
 .btn-option {
@@ -161,6 +194,7 @@ progress {
   border: 2px solid var(--color-theme);
   color: var(--color-light);
 }
+
 .btn-option.wrong {
   background-color: var(--color-accent);
   border: 2px solid var(--color-accent);
@@ -256,4 +290,70 @@ progress {
 .counter * {
   font-size: inherit;
   padding: 0.8rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+  }
+
+  .progress {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .timer {
+    font-size: 1.6rem;
+    padding: 1rem 2.2rem;
+  }
 }

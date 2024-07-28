@@ -10,10 +10,14 @@
     "server": "json-server ./src/data/db.json --port 8000"
   },
   "dependencies": {
+    "@tsparticles/engine": "^3.5.0",
+    "@tsparticles/react": "^3.0.0",
     "json": "^11.0.0",
+    "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "json-server": "^1.0.0-beta.1"
+    "tsparticles": "^3.5.0",
+    "tsparticles-slim": "^2.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
